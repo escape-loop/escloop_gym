@@ -1,0 +1,435 @@
+/* Equipment Add Form Styles */
+.equipment-add {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 24px;
+}
+
+.page-header {
+  margin-bottom: 32px;
+  text-align: center;
+}
+
+.page-header h2 {
+  color: #111827;
+  font-size: 28px;
+  font-weight: 700;
+  margin: 0 0 8px 0;
+  letter-spacing: -0.02em;
+}
+
+.page-header p {
+  color: #6b7280;
+  font-size: 16px;
+  margin: 0;
+  line-height: 1.5;
+}
+
+.form-section {
+  background: #ffffff;
+  border: 1px solid #e5e7eb;
+  border-radius: 16px;
+  padding: 24px;
+  box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+}
+
+.form-group {
+  margin-bottom: 28px;
+}
+
+.form-group h3 {
+  color: #111827;
+  font-size: 18px;
+  font-weight: 600;
+  margin: 0 0 16px 0;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.form-group h3::after {
+  content: '';
+  flex: 1;
+  height: 1px;
+  background: #e5e7eb;
+  margin-left: 12px;
+}
+
+.form-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+  margin-bottom: 16px;
+}
+
+.form-field {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.form-field label {
+  font-size: 14px;
+  font-weight: 600;
+  color: #374151;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.form-field label::after {
+  content: '*';
+  color: #ef4444;
+  font-size: 12px;
+  opacity: 0;
+}
+
+.form-field.required label::after {
+  opacity: 1;
+}
+
+.form-field input,
+.form-field select,
+.form-field textarea {
+  width: 100%;
+  padding: 12px 14px;
+  border: 1px solid #d1d5db;
+  border-radius: 10px;
+  font-size: 14px;
+  color: #111827;
+  background: #ffffff;
+  transition: all 0.2s ease;
+  outline: none;
+}
+
+.form-field input:focus,
+.form-field select:focus,
+.form-field textarea:focus {
+  border-color: #fb923c;
+  box-shadow: 0 0 0 3px rgba(251, 146, 60, 0.15);
+  transform: translateY(-1px);
+}
+
+.form-field textarea {
+  width: 100%;
+  padding: 12px 14px;
+  border: 1px solid #d1d5db;
+  border-radius: 10px;
+  font-size: 14px;
+  color: #111827;
+  background: #ffffff;
+  transition: all 0.2s ease;
+  outline: none;
+  resize: vertical;
+  min-height: 120px;
+  line-height: 1.5;
+  font-family: inherit;
+}
+
+.form-field textarea::placeholder {
+  color: #9ca3af;
+}
+
+.form-field textarea:focus {
+  border-color: #fb923c;
+  box-shadow: 0 0 0 3px rgba(251, 146, 60, 0.15);
+  transform: translateY(-1px);
+}
+
+/* Serial number fields styling */
+.serial-number-field {
+  margin-bottom: 8px;
+}
+
+.serial-number-field:last-child {
+  margin-bottom: 0;
+}
+
+.serial-number-field input {
+  border-color: #d1d5db;
+  background: #ffffff;
+  width: 100%;
+}
+
+.serial-number-field input:focus {
+  border-color: #fb923c;
+  box-shadow: 0 0 0 3px rgba(251, 146, 60, 0.15);
+}
+
+/* Serial number and status row layout */
+.serial-status-row {
+  display: flex;
+  gap: 16px;
+  align-items: flex-end;
+  width: 100%;
+}
+
+.serial-input {
+  flex: 3;
+  min-width: 300px;
+}
+
+.status-select {
+  flex: 1;
+  min-width: 180px;
+}
+
+.status-select select {
+  border-color: #d1d5db;
+  background: #ffffff;
+  width: 100%;
+}
+
+.status-select select:focus {
+  border-color: #fb923c;
+  box-shadow: 0 0 0 3px rgba(251, 146, 60, 0.15);
+}
+
+.form-actions {
+  display: flex;
+  gap: 12px;
+  justify-content: flex-end;
+  margin-top: 24px;
+  padding-top: 20px;
+  border-top: 1px solid #e5e7eb;
+}
+
+.btn-primary {
+  background: linear-gradient(135deg, #fb923c 0%, #ea580c 100%);
+  color: white;
+  border: none;
+  padding: 12px 20px;
+  border-radius: 10px;
+  font-weight: 600;
+  font-size: 14px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+}
+
+.btn-primary:hover:not(:disabled) {
+  background: linear-gradient(135deg, #ea580c 0%, #b45309 100%);
+  transform: translateY(-1px);
+  box-shadow: 0 8px 15px -3px rgba(0, 0, 0, 0.15);
+}
+
+.btn-primary:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+  transform: none;
+}
+
+.btn-secondary {
+  background: #f3f4f6;
+  color: #374151;
+  border: 1px solid #e5e7eb;
+  padding: 12px 20px;
+  border-radius: 10px;
+  font-weight: 600;
+  font-size: 14px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.btn-secondary:hover {
+  background: #e5e7eb;
+  border-color: #d1d5db;
+  transform: translateY(-1px);
+}
+
+/* Notes section styling */
+.notes-section {
+  margin-top: 20px;
+  padding-top: 20px;
+  border-top: 1px solid #e5e7eb;
+}
+
+.notes-section label {
+  font-size: 14px;
+  font-weight: 600;
+  color: #374151;
+  margin-bottom: 8px;
+  display: block;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .form-row {
+    grid-template-columns: 1fr;
+  }
+  
+  .form-actions {
+    flex-direction: column;
+  }
+  
+  .btn-primary,
+  .btn-secondary {
+    width: 100%;
+  }
+}
+
+/* Status indicators for different equipment states */
+.status-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 4px 8px;
+  border-radius: 999px;
+  font-size: 12px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.status-badge.available {
+  background: rgba(16, 185, 129, 0.15);
+  color: #059669;
+  border: 1px solid rgba(16, 185, 129, 0.3);
+}
+
+.status-badge.in-use {
+  background: rgba(59, 130, 246, 0.15);
+  color: #1d4ed8;
+  border: 1px solid rgba(59, 130, 246, 0.3);
+}
+
+.status-badge.maintenance {
+  background: rgba(245, 158, 11, 0.15);
+  color: #92400e;
+  border: 1px solid rgba(245, 158, 11, 0.3);
+}
+
+.status-badge.repair {
+  background: rgba(239, 68, 68, 0.15);
+  color: #b91c1c;
+  border: 1px solid rgba(239, 68, 68, 0.3);
+}
+
+.status-badge.retired {
+  background: rgba(107, 114, 128, 0.15);
+  color: #374151;
+  border: 1px solid rgba(107, 114, 128, 0.3);
+}
+
+/* Category badges */
+.category-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 4px 8px;
+  border-radius: 999px;
+  font-size: 12px;
+  font-weight: 600;
+  text-transform: capitalize;
+}
+
+/* Loading animation */
+@keyframes pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.5; }
+}
+
+.loading-spinner {
+  display: inline-block;
+  width: 16px;
+  height: 16px;
+  border: 2px solid rgba(255, 255, 255, 0.3);
+  border-radius: 50%;
+  border-top-color: white;
+  animation: spin 1s ease-in-out infinite;
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+/* Notes area specific styling */
+.notesarea {
+  width: 100%;
+  padding: 16px 18px;
+  border: 2px solid #e5e7eb;
+  border-radius: 12px;
+  font-size: 14px;
+  color: #111827;
+  background: #ffffff;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  outline: none;
+  resize: vertical;
+  min-height: 140px;
+  max-height: 250px;
+  line-height: 1.6;
+  font-family: inherit;
+  box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+}
+
+.notesarea::placeholder {
+  color: #9ca3af;
+  font-style: italic;
+  opacity: 0.8;
+}
+
+.notesarea:focus {
+  border-color: #fb923c;
+  box-shadow: 0 0 0 4px rgba(251, 146, 60, 0.12), 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+  transform: translateY(-2px);
+  background: #fff;
+}
+
+.notesarea:hover {
+  border-color: #d1d5db;
+  transform: translateY(-1px);
+}
+
+/* Field hints styling */
+.field-hint {
+  display: block;
+  margin-top: 6px;
+  font-size: 11px;
+  color: #6b7280;
+  font-style: italic;
+}
+
+/* Header actions styling */
+.header-actions {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.btn-delete {
+  background: #ef4444;
+  color: white;
+  border: none;
+  padding: 8px 16px;
+  border-radius: 8px;
+  font-weight: 600;
+  font-size: 14px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  box-shadow: 0 2px 4px -1px rgba(0, 0, 0, 0.1);
+}
+
+.btn-delete:hover {
+  background: #dc2626;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.15);
+}
+
+.btn-delete:active {
+  transform: translateY(0);
+}
+
+/* Position delete button top-right in header and make it compact */
+.dash-header { position: relative; }
+.header-actions { position: absolute; right: 16px; top: 12px; }
+.btn-delete-small {
+  padding: 6px 10px;
+  font-size: 13px;
+  border-radius: 8px;
+  min-width: 90px;
+}
+
+@media (max-width: 768px) {
+  .header-actions { position: static; margin-top: 12px; }
+  .btn-delete-small { width: 100%; min-width: unset; }
+}

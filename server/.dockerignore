@@ -1,0 +1,25 @@
+# ========================================
+# Docker .dockerignore - Server
+# ========================================
+node_modules
+npm-debug.log
+.env
+.env.*
+*.log
+.git
+.gitignore
+Dockerfile
+.dockerignore
+README.md
+*.md
+
+# Development files
+check_*.js
+diag_*.js
+fix_*.js
+find_*.js
+results.json
+
+# Local uploads (will use Docker volumes)
+uploads/
+public/invoices/

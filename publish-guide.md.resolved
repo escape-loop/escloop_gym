@@ -1,0 +1,83 @@
+# 🚀 Application Publishing & Auto-Update Guide
+
+Your `package.json` is now fully configured to use your **Public** GitHub repository (`escape-loop/escloop_gym`) for auto-updating.
+
+Because this repository is public, your users can download updates automatically without needing any special tokens or configuration!
+
+---
+
+## Step 1: Initial Setup & Connecting to GitHub
+
+Run these commands in your terminal to initialize Git and link it to your new repository:
+
+```bash
+# 1. Initialize Git
+git init
+
+# 2. Add all your files
+git add .
+
+# 3. Create your first commit
+git commit -m "Initial commit"
+
+# 4. Link it to your GitHub repository
+git remote add origin https://github.com/escape-loop/escloop_gym.git
+
+# 5. Push the code
+git branch -M main
+git push -u origin main
+```
+
+---
+
+## Step 2: Creating a GitHub Token (Required for Publishing)
+
+Even though the repo is public, you still need a **GitHub Token** on your development machine to allow `electron-builder` to upload the `.exe` file to your GitHub Releases page.
+
+1. Go to **GitHub.com** -> Click your Profile Picture -> **Settings**.
+2. Scroll down to **Developer settings** (bottom left) -> **Personal access tokens** -> **Tokens (classic)**.
+3. Click **Generate new token (classic)**.
+4. Name it `Escloop Updater`.
+5. Check the **`repo`** checkbox.
+6. Click Generate, and **copy the token** (it starts with `ghp_`).
+
+**Add the token to your computer:**
+*   Open your Windows Search bar and type **"Environment Variables"**.
+*   Click **"Edit the system environment variables"**.
+*   Click the **"Environment Variables..."** button at the bottom.
+*   Under "User variables", click **New**.
+*   Variable name: `GH_TOKEN`
+*   Variable value: *(paste your token here)*
+*   Click OK, and **restart your terminal/VSCode** for it to take effect.
+
+---
+
+## Step 3: Pushing an Update (Your New Workflow)
+
+Whenever you make changes to the code and want to push a new update to all your users, follow these 3 steps:
+
+### 1. Increase the Version Number
+Open `package.json` and change the `"version"` field. 
+*(Example: change `"1.0.0"` to `"1.0.1"`)*
+
+### 2. Push Source Code to GitHub
+Save your code to GitHub:
+```bash
+git add .
+git commit -m "Description of changes"
+git push
+```
+
+### 3. Build & Publish the `.exe`
+Run this command. It will compile your React client, build the Windows Installer, and upload the `.exe` directly to your GitHub Releases:
+```bash
+npm run dist -- -p always
+```
+
+---
+
+## Step 4: Users Receive the Update!
+When any user opens the Escloop Gym Manager, the app will:
+1. Contact GitHub and see that a new version is available.
+2. Download the update silently in the background.
+3. Automatically install the new version the next time they open the app!

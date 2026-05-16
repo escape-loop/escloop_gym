@@ -1,0 +1,288 @@
+/* Fitness Plans Listing Styles */
+.fitness-plans-listing {
+  max-width: 100%;
+  margin: 0 auto;
+  padding: 24px;
+  animation: fadeIn 0.4s ease-out;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.page-header {
+  margin-bottom: 32px;
+}
+
+.page-header h2 {
+  color: #111827;
+  font-size: 28px;
+  font-weight: 700;
+  margin: 0 0 8px 0;
+  letter-spacing: -0.02em;
+}
+
+.page-header p {
+  color: #6b7280;
+  font-size: 16px;
+  margin: 0;
+}
+
+/* Stats */
+.fitness-controls {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 24px;
+}
+
+.stats {
+  display: flex;
+  gap: 16px;
+}
+
+.stats span {
+  background: white;
+  padding: 8px 16px;
+  border-radius: 999px;
+  border: 1px solid #e5e7eb;
+  font-size: 13px;
+  font-weight: 600;
+  color: #374151;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+  display: flex;
+  align-items: center;
+}
+
+.stats .profit-stat {
+  background-color: #f0fdf4;
+  color: #166534;
+  border-color: #bbf7d0;
+}
+
+.stats .pending-stat {
+  background-color: #fff1f2;
+  color: #991b1b;
+  border-color: #fecdd3;
+}
+
+/* Filters */
+.listing-filters {
+  display: flex;
+  gap: 16px;
+  margin-bottom: 24px;
+  background: white;
+  padding: 16px;
+  border-radius: 12px;
+  border: 1px solid #e5e7eb;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+  flex-wrap: wrap;
+}
+
+.search-controls {
+  flex: 1;
+  min-width: 300px;
+}
+
+.dash-search {
+  width: 100%;
+  padding: 10px 16px;
+  border: 1px solid #d1d5db;
+  border-radius: 8px;
+  font-size: 14px;
+  transition: all 0.2s;
+}
+
+.dash-search:focus {
+  border-color: #f97316;
+  box-shadow: 0 0 0 3px rgba(249, 115, 22, 0.1);
+  outline: none;
+}
+
+.status-filter {
+  padding: 10px 16px;
+  border: 1px solid #d1d5db;
+  border-radius: 8px;
+  background: white;
+  font-size: 14px;
+  cursor: pointer;
+  outline: none;
+  min-width: 150px;
+}
+
+.status-filter:focus {
+  border-color: #f97316;
+}
+
+/* Table Styles */
+.table-container {
+  background: white;
+  border-radius: 12px;
+  border: 1px solid #e5e7eb;
+  overflow-x: auto;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+}
+
+.dash-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 14px;
+}
+
+.dash-table th {
+  background: #fdfbf7;
+  /* Light orange tint or gray */
+  color: #4b5563;
+  font-weight: 600;
+  text-transform: uppercase;
+  font-size: 12px;
+  letter-spacing: 0.05em;
+  padding: 12px 16px;
+  text-align: left;
+  border-bottom: 2px solid #e5e7eb;
+}
+
+.dash-table td {
+  padding: 12px 16px;
+  border-bottom: 1px solid #f3f4f6;
+  color: #1f2937;
+  vertical-align: middle;
+  white-space: normal;
+}
+
+.dash-table tr:last-child td {
+  border-bottom: none;
+}
+
+.dash-table tr:hover {
+  background-color: #fff7ed;
+  /* Very light orange hover */
+}
+
+/* Badges */
+.package-badge {
+  display: inline-block;
+  padding: 4px 10px;
+  background-color: #e0f2fe;
+  color: #0369a1;
+  border-radius: 999px;
+  font-size: 12px;
+  font-weight: 500;
+}
+
+.status-badge {
+  display: inline-block;
+  padding: 4px 10px;
+  border-radius: 999px;
+  font-size: 11px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.02em;
+}
+
+.status-badge.paid {
+  background-color: #d1fae5;
+  color: #059669;
+  border: 1px solid #a7f3d0;
+}
+
+.status-badge.pending {
+  background-color: #fef3c7;
+  color: #d97706;
+  border: 1px solid #fde68a;
+}
+
+.status-badge.partial {
+  background-color: #dbeafe;
+  color: #2563eb;
+  border: 1px solid #bfdbfe;
+}
+
+.status-badge.cancelled {
+  background-color: #fee2e2;
+  color: #dc2626;
+  border: 1px solid #fecaca;
+}
+
+
+/* Utility Colors */
+.text-danger {
+  color: #ef4444;
+  font-weight: 600;
+}
+
+.text-success {
+  color: #10b981;
+  font-weight: 600;
+}
+
+/* Action Buttons */
+.action-buttons {
+  display: flex;
+  gap: 8px;
+}
+
+.btn-icon {
+  width: 32px;
+  height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid #e5e7eb;
+  background: white;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: all 0.2s;
+  font-size: 14px;
+}
+
+.btn-icon:hover {
+  background: #f9fafb;
+  border-color: #d1d5db;
+  transform: translateY(-1px);
+}
+
+.delete-btn:hover {
+  background: #fef2f2;
+  border-color: #fecaca;
+  color: #ef4444;
+}
+
+/* Empty State */
+.loading-state,
+.empty-state {
+  padding: 48px;
+  text-align: center;
+  color: #6b7280;
+}
+
+.empty-icon {
+  font-size: 48px;
+  display: block;
+  margin-bottom: 16px;
+  opacity: 0.5;
+}
+
+@media (max-width: 768px) {
+  .listing-filters {
+    flex-direction: column;
+  }
+
+  .stats {
+    display: none;
+    /* Hide stats on mobile or make scrollable */
+  }
+
+  .dash-table th,
+  .dash-table td {
+    padding: 12px 16px;
+  }
+}

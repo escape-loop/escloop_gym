@@ -1,0 +1,81 @@
+﻿ID,Exercise Name,Target Muscle,Difficulty,Gym Equipment,Home Alternative,Gender/Goal Bias,Target Goal
+1,Low-Bar Back Squat,Quads/Glutes,Advanced,Barbell/Rack,Goblet Squat (Heavy Bag),Male/Strength,Max Strength
+2,Conventional Deadlift,Posterior Chain,Advanced,Barbell,Suitcase Deadlift (Luggage),Male/Strength,Max Strength
+3,Flat Bench Press,Pectoralis Major,Interm.,Bench/Barbell,Weighted Push-Up,Male/Strength,Upper Body Push
+4,Overhead Press,Anterior Deltoid,Interm.,Barbell,Pike Push-Up,Male/Strength,Vertical Push
+5,Walking Lunges,Quads/Glutes,Interm.,Dumbbells,Bodyweight Split Squat,Unisex,Unilateral Stability
+6,Bent-Over Barbell Row,Lats/Rhomboids,Interm.,Barbell,Inverted Row (Table Edge),Male/Strength,Back Thickness
+7,Pull-Up,Lats (Width),Advanced,Pull-Up Bar,Door Towel Pull-In,Male/Strength,Vertical Pull
+8,Romanian Deadlift (RDL),Hamstrings,Interm.,Barbell,Single-Leg RDL (Bottle),Unisex,Posterior Chain
+9,Incline Bench Press,Upper Chest,Interm.,Incline Bench,Decline Push-Up (Feet Up),Male/Aesthetics,Upper Pecs
+10,Dips,Triceps/Chest,Interm.,Dip Station,Chair Dips,Male/Strength,Pushing Power
+11,Leg Press,Quads (Isolation),Beginner,Leg Press Machine,Wall Sit / Step-Up,Unisex,Hypertrophy
+12,Front Squat,Quads/Core,Advanced,Barbell,Front-Loaded Bag Squat,Male/Strength,Quad Bias
+13,T-Bar Row / Landmine,Mid-Back,Interm.,Landmine Setup,Corner Towel Row,Male/Strength,Back Thickness
+14,Sumo Deadlift,Glutes/Adductors,Advanced,Barbell,Wide Stance KB Deadlift,Female/Focus,Glute/Hip Dominant
+15,Pendlay Row,Lats (Power),Advanced,Barbell,Explosive Bag Row,Male/Strength,Explosive Pull
+16,Dumbbell Bicep Curl,Biceps Brachii,Beginner,Dumbbells,Water Bottle Curls,Male/Arms,Arm Size
+17,Hammer Curl,Brachialis,Beginner,Dumbbells,Jug Handle Curl,Male/Arms,Arm Width
+18,Tricep Rope Pushdown,Triceps (Lat.),Beginner,Cable Station,Band Pushdown,Male/Arms,Horseshoe Tricep
+19,Overhead Tricep Ext.,Triceps (Long),Interm.,Dumbbell,Overhead Bottle Ext.,Male/Arms,Arm Mass
+20,Lateral Raises,Lateral Deltoid,Interm.,Dumbbells,Bottle Lateral Raise,Male/V-Taper,Shoulder Width
+21,Face Pulls,Rear Delt/Cuff,Interm.,Rope Cable,Band Pull-Apart,Unisex/Posture,Shoulder Health
+22,Pec Deck Fly,Inner Chest,Beginner,Machine Fly,Floor Towel Fly,Male/Detail,Chest Definition
+23,Lat Pulldown (Wide),Lats (Width),Beginner,Cable Machine,Band Lat Pulldown,Male/Width,Back Width
+24,Seated Cable Row,Mid-Back,Interm.,Cable Station,Seated Band Row,Male/Thickness,Posture/Thickness
+25,Skull Crushers,Triceps,Interm.,EZ Bar,Floor Skull Crushers,Male/Arms,Mass
+26,Preacher Curl,Biceps (Short),Beginner,Preacher Bench,Inclined Sofa Curl,Male/Arms,Isolation/Peak
+27,Dumbbell Pullover,Lats/Serratus,Interm.,Bench/DB,Floor Pullover (Slide),Male/Frame,Ribcage Expansion
+28,Shrugs,Trapezius,Beginner,Heavy DBs,Heavy Bag Hold,Male/Yoke,Neck/Trap Size
+29,Concentration Curl,Bicep Peak,Beginner,Dumbbell,Seated Elbow Curl,Male/Arms,Peak Contraction
+30,Reverse Fly,Rear Deltoid,Interm.,Pec Deck,Bent-Over Bottle Fly,Unisex,Posture
+31,Front Raise,Anterior Delt,Beginner,Plate,Backpack Front Raise,Male/Shoulders,Front Delt
+32,Arnold Press,Deltoids (All),Interm.,Dumbbells,Bottle Rotate Press,Male/Shoulders,3D Shoulders
+33,Upright Row,Side Delt/Trap,Advanced,EZ Bar/Cable,Band Upright Row,Male/Shoulders,Cap Delts
+34,Straight Arm Pulldown,Lats (Iso),Interm.,Cable,Band Straight Arm,Male/Lats,Lat Isolation
+35,Incline Dumbbell Curl,Biceps (Long),Interm.,Incline Bench,Seated Lean-Back Curl,Male/Arms,Stretch Bias
+36,Tricep Kickbacks,Triceps,Beginner,Dumbbell,Bottle Kickback,Female/Toning,Arm Definition
+37,Wrist Curls,Forearms,Beginner,Barbell,Bottle Wrist Twist,Male/Grip,Grip Strength
+38,Reverse Curl,Forearms/Brach.,Interm.,Barbell,Overhand Bottle Curl,Male/Arms,Forearm Size
+39,Chest Supported Row,Upper Back,Interm.,Machine/Bench,Incline Bench Row,Male/Back,Safe Rowing
+40,Plate Pinch,Grip Strength,Interm.,Weight Plates,Thick Book Pinch,Male/Grip,Grip Endurance
+41,Single-Leg Hip Thrust,Glutes (Iso),Advanced,Bench,Couch Single-Leg Thrust,Female/Glutes,Glute Isolation
+42,Glute Bridge,Glutes,Beginner,Barbell,Weighted Floor Bridge,Female/Glutes,Beginner Glute
+43,Cable Kickbacks,Upper Glute,Interm.,Ankle Strap,Banded Kickback,Female/Glutes,Upper Shelf
+44,Bulgarian Split Squat,Glutes/Quads,Advanced,Dumbbells,Foot-Elevated Squat,Female/Toning,Unilateral Leg
+45,45-Degree Hyperext.,Glutes/Hams,Interm.,Hyper Bench,Reverse Hyperextension,Female/Glutes,Posterior Chain
+46,Seated Hip Abduction,Glute Medius,Beginner,Machine,Banded Seated Abd.,Female/Glutes,Side Glute
+47,Lateral Band Walks,Glute Medius,Beginner,Mini-Bands,Crab Walk (No Band),Female/Toning,Hip Health
+48,Curtsy Lunges,Outer Glute,Interm.,Dumbbells,Bodyweight Curtsy,Female/Toning,Glute Shape
+49,Frog Pumps,Glutes,Beginner,Dumbbell,Bodyweight Frog Pump,Female/Glutes,Metabolic Burn
+50,Cable Pull-Throughs,Glutes/Hams,Interm.,Rope Cable,Band Pull-Through,Female/Glutes,Hinge Pattern
+51,Step-Ups,Glutes (Uni),Interm.,High Box,Chair Step-Up,Female/Toning,Glute Lift
+52,Donkey Kicks,Glute Max,Beginner,Ankle Weights,DB Behind Knee Kick,Female/Toning,Glute Max
+53,Fire Hydrants,Glute Medius,Beginner,None,Bodyweight Hydrant,Female/Toning,Hip Mobility
+54,Single-Leg RDL,Glutes/Hams,Advanced,Landmine,Bottle Single RDL,Female/Toning,Balance/Shape
+55,Sumo Squat Pulse,Adductors,Beginner,Dumbbell,Bodyweight Pulse,Female/Toning,Inner Thigh
+56,Clamshells,Glute Medius,Beginner,Resistance Band,Side Lying Clam,Female/Toning,Hip Stability
+57,Glute Ham Raise,Hamstrings,Advanced,GHR Machine,Nordic Curl (Anchored),Unisex,Hamstring Strength
+58,Side Lunge,Adductors,Interm.,Dumbbell,Cossack Squat,Female/Toning,Mobility/Shape
+59,Standing Cable Abd.,Side Glute,Interm.,Cable,Side Lying Leg Raise,Female/Glutes,Side Contour
+60,Reverse Lunge,Glutes,Interm.,Deficit (Plate),Step Back Lunge,Female/Toning,Glute Stretch
+61,Plank,Core (Stability),Beginner,Mat,Floor Plank,Unisex,Anti-Extension
+62,Hanging Leg Raises,Lower Abs,Advanced,Pull-Up Bar,Lying Leg Raises,Male/Abs,Lower Ab
+63,Russian Twists,Obliques,Interm.,Medicine Ball,Bottle Twist,Unisex,Rotation
+64,Ab Wheel Rollout,Core (Stretch),Advanced,Ab Wheel,Towel Slide Rollout,Male/Abs,Anti-Extension
+65,Cable Woodchoppers,Obliques,Interm.,Cable,Band Woodchoppers,Unisex,Rotational Power
+66,Dead Bug,Deep Core,Beginner,Mat,Floor Dead Bug,Unisex,Pelvic Control
+67,Bicycle Crunches,Abs/Obliques,Interm.,Mat,Floor Bicycle,Female/Toning,Ab Definition
+68,Mountain Climbers,Cardio/Core,Interm.,Floor,Floor Climbers,Unisex,High HR
+69,Vacuum Pose,Transverse Abs,Advanced,None,Stomach Vacuum,Male/Aesthetics,Small Waist
+70,Side Plank,Obliques/QL,Interm.,Mat,Floor Side Plank,Unisex,Lateral Stability
+71,HIIT Burpees,Full Body,Advanced,Floor,Floor Burpees,Unisex,Fat Loss
+72,Treadmill Sprints,Legs/Cardio,Interm.,Treadmill,High Knees in Place,Unisex,Sprint Cardio
+73,Jump Rope,Calves/Cardio,Interm.,Rope,Shadow Skipping,Unisex,Coordination
+74,Battle Ropes,Shoulders/Cardio,Interm.,Ropes,Towel Slams,Male/Cond.,Upper Body Cond.
+75,Stair Climber,Glutes/Cardio,Beginner,StairMaster,Step-Up Intervals,Female/Toning,Glute Cardio
+76,Cycling,Quads/Cardio,Beginner,Spin Bike,Air Cycling (Lying),Unisex,Low Impact
+77,Kettlebell Swing,Posterior Chain,Interm.,Kettlebell,Dumbbell Swing,Female/Toning,Hinge Cardio
+78,Box Jumps,Fast Twitch,Advanced,Plyo Box,Broad Jumps,Male/Power,Explosive Power
+79,Rowing Machine,Back/Cardio,Interm.,Concept2 Rower,Band Seated Cardio Row,Unisex,Full Body Cardio
+80,Elliptical Trainer,Cardio,Beginner,Elliptical,Sliding Mtn Climbers,Unisex,Low Impact

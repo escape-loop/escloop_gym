@@ -1,0 +1,124 @@
+﻿Item ID,Dish Name,Calories (kcal),Protein (g),Carbs (g),Fat (g),Difficulty,Nutritional Analysis & Context,Type
+B-01,Idli (2 pcs) + Sambar (1 bowl),260–320,12–15,50–55,2–4,Medium,"A symbiotic meal. The rice-urad dal batter provides a complete protein profile when paired with sambar (pigeon pea stew). It is steamed, making it naturally low-fat and easy on the digestive system, ideal for post-recovery or weight loss phases.",Breakfast
+B-02,Ragi Idli (2 pcs) + Coconut Chutney,240–280,8–10,45–50,6–8,Medium,"Finger millet (Ragi) introduces significant calcium and fiber, lowering the GI compared to white rice idlis. This modification is crucial for insulin management.",Breakfast
+B-03,Oats Idli (2 pcs) + Veg Sambar,280–300,10–12,40–45,5–7,Medium,"A modern adaptation using beta-glucan-rich oats to support heart health and cholesterol management. The texture is denser, providing higher satiety than traditional rice idlis.",Breakfast
+B-04,Plain Dosa + Sambar,250–300,6–8,45–50,6–8,Hard,"Requires precise fermentation. While delicious, standard dosa is calorie-dense due to the oil required for crisping. It is best utilized as a post-workout carb source for glycogen replenishment.",Breakfast
+B-05,Pesarattu (Green Moong Dosa) + Ginger Chutney,300–350,12–15,35–40,8–10,Hard,"Made from whole green moong beans, this offers superior fiber and protein retention compared to rice dosa. The ginger chutney aids in the digestion of the dense legume protein.",Breakfast
+B-06,Ragi Dosa + Peanut Chutney,320–350,8–10,40–45,10–12,Hard,"The inclusion of peanut chutney introduces monounsaturated fats and additional protein, balancing the carbohydrate load of the millet base.",Breakfast
+B-07,Appam + Vegetable Stew,350–400,6–8,50–60,12–15,Hard,"Fermented with toddy or yeast, the batter is rich in gut-friendly bacteria. The coconut milk stew provides Medium Chain Triglycerides (MCTs), a rapidly oxidized energy source.",Breakfast
+B-08,Set Dosa (Sponge Dosa) + Sagu,350–400,8–10,55–60,8–10,Hard,"Thicker and softer than crispy dosa, these retain more moisture and batter volume, leading to higher caloric density. The accompanying vegetable sagu ensures micronutrient diversity.",Breakfast
+B-09,Adai (Mixed Lentil Dosa) + Avial,380–420,14–16,45–50,10–12,Hard,"A protein powerhouse utilizing Chana, Toor, and Urad dals. This dense pancake requires no fermentation, making it a ""hard"" prep due to soaking but metabolically superior for muscle repair.",Breakfast
+B-10,Neer Dosa + Coconut Chutney,250–280,4–6,35–40,8–10,Medium,"These delicate, gluten-free rice crepes from the Tulu region are extremely light but low in protein. They must be paired with a protein-rich side like egg curry to constitute a balanced meal.",Breakfast
+B-11,Mutta Dosa (Egg Dosa),320-350,14-16,30-35,Dec-14,Medium,A viral trend noted in fitness circles. Cracking an egg directly onto the dosa batter increases the biological value of the protein and significantly lowers the meal's glycemic load.,Breakfast
+B-12,Paneer Paratha (1) + Curd (100g),300–350,12–15,30–35,12–15,Medium,"Paneer provides slow-digesting casein protein, which, when combined with the probiotics in curd, creates a highly satiating meal that suppresses ghrelin (hunger hormone) levels.",Breakfast
+B-13,Methi Thepla (2) + Curd,280–320,8–10,40–45,8–10,Easy,"Fenugreek leaves (Methi) contain galactomannan, which slows sugar absorption. This Gujarati staple is travel-friendly and resistant to spoilage, aiding consistency.",Breakfast
+B-14,Sattu Paratha (1) + Baingan Bharta,350–400,12–14,45–50,10–12,Medium,"Sattu (roasted gram flour) is a ""cooling"" protein source popular in Bihar. It is calorically dense but offers a superior fiber-to-carb ratio compared to potato fillings.",Breakfast
+B-15,Gobi Paratha (1) + Pickle,250–280,6–8,40–45,8–10,Medium,"Cauliflower is a non-starchy vegetable, allowing for a voluminous filling that reduces the dough requirement, effectively lowering the caloric density of the meal.",Breakfast
+B-16,Mixed Veg Paratha (1) + Raita,300–330,8–10,40–45,10–12,Medium,"Incorporating carrots, beans, and peas ensures a broad spectrum of vitamins (A, C) and fiber. The raita adds a cooling protein component.",Breakfast
+B-17,Palak Paratha (2) + Yogurt,280–300,8–10,40–45,8–10,Easy,"Pureeing spinach into the dough is an effective strategy to increase ""greens"" consumption. It enhances iron absorption, especially when paired with Vitamin C-rich sides.",Breakfast
+B-18,Missi Roti (2) + White Butter,320–350,10–12,40–45,12–15,Medium,"A blend of whole wheat and gram flour (besan). This lowers the gluten content and increases the protein content, making it a diabetic-friendly alternative to plain roti.",Breakfast
+B-19,Vegetable Poha + Peanuts,250–300,6–8,40–45,8–10,Easy,Flattened rice is pre-cooked and easily digestible. The addition of peanuts is critical for introducing fats and protein to blunt the insulin response.,Breakfast
+B-20,Vegetable Upma (Rava),250–280,5–7,40–45,7–9,Easy,"Semolina provides rapid energy. However, its high GI requires significant vegetable volume (1:1 ratio) and healthy fats (ghee) to prevent rapid blood sugar spikes.",Breakfast
+B-21,Oats Upma + Veggies,240–270,8–10,35–40,6–8,Easy,A functional food swap. Oats provide beta-glucan fiber which aids in cholesterol management. The savory preparation avoids the sugar often added to western oatmeal.,Breakfast
+B-22,Dalia (Broken Wheat) Khichdi,260–300,8–10,45–50,5–7,Medium,"Whole wheat kernels digest slowly, providing sustained energy release. It is rich in B-vitamins and magnesium, supporting metabolic function.",Breakfast
+B-23,Vermicelli (Semiya) Upma,280–320,6–8,45–50,8–10,Easy,Often made from refined wheat (maida). Nutritional value is improved by choosing whole wheat or millet vermicelli variants and maximizing vegetable inclusion.,Breakfast
+B-24,Quinoa Upma,280–320,10–12,40–45,6–8,Easy,Quinoa is a pseudo-cereal containing a complete amino acid profile. It mimics the texture of Rava/Sooji but offers superior protein quality.,Breakfast
+B-25,Sabudana Khichdi + Peanuts,350–400,4–6,60–70,10–12,Medium,"Tapioca pearls are nearly pure starch. While culturally significant for fasting, its high caloric density makes it suitable for ""bulking"" rather than weight loss, unless portion-controlled.",Breakfast
+B-26,Besan Chilla (2) + Mint Chutney,260–300,12–14,30–35,8–10,Easy,Chickpea flour pancakes. Gluten-free and low-GI. The high fiber content of besan promotes gut motility and satiety.,Breakfast
+B-27,Moong Dal Chilla + Paneer Stuffing,280–320,18–22,25–30,10–12,Medium,"The ""Vegetarian Omelet."" Split yellow moong dal is easy to digest. Stuffing with paneer creates a protein density comparable to meat-based meals.",Breakfast
+B-28,Egg Bhurji (2 eggs) + 1 Multigrain Roti,300–350,16–18,20–25,15–18,Easy,"A scramble enriched with onions, tomatoes, and spices. The vegetables add volume and micronutrients, while the eggs provide high biological value protein.",Breakfast
+B-29,Masala Omelette (2 eggs) + Toast,300–330,14–16,25–30,14–16,Easy,A classic. The inclusion of turmeric and black pepper in the egg mixture increases the anti-inflammatory potential of the meal.,Breakfast
+B-30,Oats & Egg Pancakes,320–350,18–20,35–40,10–12,Medium,A fusion recipe found in modern diet plans. Blending oats directly with eggs creates a balanced batter that requires no oil for binding.,Breakfast
+L-01,Dal Tadka + 2 Phulkas + Salad,350–400,14–16,55–60,8–10,Medium,"The standard North Indian staple. Phulkas (roti without oil) keeps fat intake low, while the Dal provides essential lysine. The salad is crucial for fiber to lower the meal's GI.35",Lunch
+L-02,Rajma Masala + Steamed Rice,400–450,12–15,65–70,8–10,Hard,"""Rajma Chawal"" is a complete protein. Kidney beans are rich in molybdenum and folate. Though carb-heavy, the fiber in beans regulates absorption.38",Lunch
+L-03,Chole (Chickpeas) + 2 Rotis,400–450,14–16,60–65,10–12,Hard,"Chickpeas have a high satiety index due to their density. However, they are caloric; adhering to portion sizes (one bowl) is critical for weight management.40",Lunch
+L-04,Kadhi (Yogurt Curry) + Rice,350–400,10–12,55–60,10–12,Medium,The yogurt base offers probiotics for gut health. The chickpea flour thickener adds protein. It is lighter than cream-based curries but lower in total protein.36,Lunch
+L-05,Palak Paneer + 2 Rotis,450–500,20–22,35–40,20–25,Medium,"A keto-friendly option if eaten without roti. Spinach provides magnesium and iron, while paneer offers substantial fat and protein.36",Lunch
+L-06,Bhindi Masala + 2 Rotis + Dal,400–450,15–18,55–60,12–15,Medium,Okra provides mucilaginous fiber that coats the gut lining. Pairing it with a side of Dal ensures the meal is not protein-deficient.35,Lunch
+L-07,Aloo Gobi + 2 Rotis + Curd,380–420,10–12,55–60,10–12,Medium,"A dry curry of potato and cauliflower. While popular, it is carb-dominant. The addition of curd is essential to add protein and probiotics.45",Lunch
+L-08,Baingan Bharta + 2 Rotis,350–380,8–10,50–55,10–12,Medium,"Roasted eggplant mash is smoky and low-calorie. It is rich in nasunin, a potent antioxidant. A great volume food for dieting.40",Lunch
+L-09,Lauki Sabzi + 2 Rotis + Dal,350–380,14–16,50–55,8–10,Medium,"Bottle gourd is 96% water and diuretic. It is often prescribed in Ayurveda for weight loss (""Medo-hara""). Requires a dal side for protein.14",Lunch
+L-10,Mix Veg Sabzi + 2 Rotis + Curd,380–420,10–12,50–55,12–15,Medium,"A medley of seasonal vegetables ensures a diverse micronutrient profile. However, restaurant versions are often oily; home cooking is essential to control fat.35",Lunch
+L-11,Moong Dal Khichdi + Ghee,350–400,12–14,50–55,10–12,Easy,The ultimate digestive reset. The combination of rice and moong dal is easy on the stomach. Ghee is added not just for flavor but to lower the glycemic load.,Lunch
+L-12,Vegetable Pulao + Raita,300–350,8–10,50–55,8–10,Easy,Increasing the vegetable-to-rice ratio to 1:1 drastically improves the nutritional density. Raita provides necessary protein.,Lunch
+L-13,Soya Chunks Biryani,400–450,20–25,50–55,10–12,Medium,Soya chunks (Textured Vegetable Protein) are the highest vegetarian source of protein. This dish offers the satisfaction of biryani with a superior macro profile.,Lunch
+L-14,Quinoa Vegetable Khichdi,320–360,12–14,45–50,8–10,Easy,A modern twist. Quinoa provides a complete protein profile and higher magnesium than rice. Ideal for gluten-free diets.,Lunch
+L-15,Bisi Bele Bath (Lentil Rice),400–450,12–15,60–65,10–12,Hard,"A traditional Karnataka specialty utilizing tamarind, jaggery, and specific spices. It is calorie-dense but nutrient-rich due to the variety of vegetables used.",Lunch
+L-16,Curd Rice + Pomegranate,300–350,8–10,45–50,10–12,Easy,A potent probiotic meal. The addition of pomegranate adds antioxidants and texture. It cools the body and is often eaten to conclude a meal.,Lunch
+L-17,Lemon Rice + Boiled Egg,350–400,10–12,50–55,10–12,Easy,Lemon rice alone is carb-heavy with little protein. The addition of a boiled egg makes it a balanced meal. The citric acid aids iron absorption.,Lunch
+L-18,Methi (Fenugreek) Rice,320–360,6–8,50–55,8–10,Easy,Fenugreek greens are excellent for insulin sensitivity. This one-pot meal incorporates greens without the bitterness being overwhelming.,Lunch
+L-19,Tomato Rice (Thakkali Sadam),300–350,6–8,50–55,8–10,Easy,Rich in lycopene from cooked tomatoes. The acidity stimulates digestion. Best paired with a protein-rich side like roasted chana.,Lunch
+L-20,Millet (Foxtail) Pulao,300–340,8–10,50–55,6–8,Medium,Millets are drought-resistant ancient grains with a lower GI than rice. They provide sustained energy and prevent the afternoon glucose crash.,Lunch
+,,,,,,,,Lunch
+L-21,Chicken Curry + 2 Rotis,400–450,25–30,35–40,15–18,Medium,A staple for muscle gain. Home-cooked curry avoids the heavy cream of restaurants. Chicken breast provides lean protein.,Lunch
+L-22,Fish Curry (Kerala Style) + Rice,400–450,25–28,45–50,15–18,Medium,Fish offers essential Omega-3 fatty acids. The coconut milk base is calorically dense but highly satiating due to fats.,Lunch
+L-23,Egg Curry (2 eggs) + Rice,380–420,14–16,45–50,12–15,Medium,"Eggs are a ""reference protein"" with 100% biological value. The gravy ensures palatability with rice.",Lunch
+L-24,Grilled Chicken Salad (Indian),300–350,30–35,10–15,10–12,Easy,"Marinated in yogurt and Tikka spices. Extremely low-carb and high-protein, suitable for ""cutting"" phases or aggressive weight loss.",Lunch
+L-25,Keema Matar + Roti,450–500,25–30,30–35,20–25,Medium,Minced meat (lamb/chicken) with peas. High in iron and B12. Higher fat content requires strict portion control.,Lunch
+L-26,Chicken Biryani (Home style),500–600,25–30,60–70,15–20,Hard,A culturally significant but calorie-dense meal. Home cooking allows for oil reduction. Best consumed on high-activity days.,Lunch
+L-27,Egg Bhurji + 2 Multigrain Rotis,350–400,16–18,35–40,12–15,Easy,"A quick lunch option. Scrambling eggs with onions, tomatoes, and chilies increases the volume and micronutrient density.",Lunch
+L-28,Tandoori Chicken + Salad,300–350,30–35,5–10,12–15,Medium,"Roasted in a clay oven (or oven). Fat drips away during cooking, making it one of the leanest Indian meat preparations.",Lunch
+L-29,Prawn Masala + Rice,380–420,20–25,45–50,10–12,Medium,Prawns are nearly pure protein with very little fat. They are rich in zinc and selenium.,Lunch
+L-30,Mutton Rogan Josh + 2 Rotis,500–550,25–30,35–40,25–30,Hard,"A rich Kashmiri dish. Red meat is harder to digest, making it suitable for lunch but not dinner. High calorie density.",Lunch
+L-31,Black Chana Masala + Roti,350–400,12–15,55–60,8–10,Medium,"Black chickpeas have a lower GI and tougher skin than white chickpeas, leading to slower digestion and prolonged satiety.",Lunch
+L-32,Lobiya (Black Eyed Peas) + Rice,380–420,12–14,60–65,8–10,Medium,Cooks faster than Rajma. It has a unique creamy texture without adding fat. Good source of folate.,Lunch
+L-33,Kulthi (Horse Gram) Dal + Rice,350–400,14–16,55–60,6–8,Medium,"A lesser-known superfood. Ayurvedic texts recommend Horse Gram for ""cutting fat"" and kidney stone prevention.",Lunch
+L-34,Masoor Dal (Red Lentil) + Rice,350–380,14–16,55–60,6–8,Easy,"The most easily digestible lentil. High protein content and cooks rapidly, making it ideal for quick meals.",Lunch
+L-35,Green Moong Sabzi (Dry) + Roti,320–360,12–14,50–55,8–10,Medium,Using whole green moong (with skin) provides maximum fiber. The dry preparation concentrates flavors and nutrients.,Lunch
+L-36,Chana Dal + Lauki + Roti,320–350,10–12,50–55,8–10,Medium,"A symbiotic combination. The dal adds protein, while the bottle gourd adds volume and hydration, balancing the meal's density.",Lunch
+L-37,Matki (Moth Bean) Curry + Roti,300–340,12–14,45–50,8–10,Medium,Often sprouted before cooking (Usal). Sprouting enhances vitamin C content and reduces cooking time.,Lunch
+L-38,Soyabean Chunk Curry + Rice,350–400,20–25,45–50,10–12,Medium,"Known as ""vegetarian meat."" It offers a complete protein profile and a chewy texture that satisfies cravings for meat.",Lunch
+L-39,Paneer Bhurji + 2 Rotis,400–450,18–20,35–40,20–25,Easy,Scrambled paneer is quick and high in fat/protein. Excellent for those following a Lower Carb High Fat (LCHF) protocol.,Lunch
+L-40,Avial + Rice,350–400,6–8,50–55,12–15,Medium,"A Kerala mixed vegetable stew with coconut and yogurt. While lower in protein, it is a multivitamin powerhouse.",Lunch
+,,,,,,,,
+D-01,Tomato Rasam (1 bowl),50–80,1–2,10–15,2–4,Easy,"A functional soup. Tamarind, black pepper, and cumin aid digestion and clear sinuses. Very low calorie.",Dinner
+D-02,Lauki (Bottle Gourd) Soup,60–90,2–3,10–15,2–3,Easy,Alkalizing and cooling. High water content promotes fullness. Often used in naturopathy for weight loss.,Dinner
+D-03,Moong Dal Soup (Watery),100–120,6–8,15–18,2–4,Easy,The specific amino acid profile of moong dal is least taxing on the digestive system. A staple for recovery.,Dinner
+D-04,Chicken Clear Soup,120–150,15–18,5–8,4–6,Easy,Pure lean protein in liquid form. Amino acids are rapidly absorbed for overnight muscle repair.,Dinner
+D-05,Mixed Vegetable Soup,100–130,3–5,15–20,3–5,Easy,"High fiber volume from cabbage, carrots, and beans. Uses up leftover produce efficiently.",Dinner
+D-06,Palak (Spinach) Soup,90–110,3–5,10–15,3–5,Easy,A magnesium-rich soup that can help relax muscles and improve sleep quality.,Dinner
+D-07,Mulligatawny Soup,180–220,8–10,25–30,6–8,Medium,An Anglo-Indian hybrid of soup and curry. Adding lentils and rice makes it a complete light meal.,Dinner
+D-08,Grilled Paneer Salad,250–300,18–20,10–15,15–18,Easy,"Paneer contains casein, which clots in the stomach and provides a slow release of amino acids throughout the night.",Dinner
+D-09,Soya Chunk Stir Fry,200–250,20–25,15–20,8–10,Easy,"A high-protein vegan option. The spongy texture absorbs spices well, making it satisfying without heavy gravies.",Dinner
+D-10,Egg White Bhurji (4 eggs),180–220,14–16,5–8,10–12,Easy,Removing the yolk drastically reduces calories and cholesterol while maintaining high protein density.,Dinner
+D-11,Tofu Bhurji (Vegan),200–250,15–18,8–10,12–15,Easy,A lower saturated fat alternative to paneer. Soy protein aids in lowering cholesterol.,Dinner
+D-12,Chicken Tikka (No Naan),300–350,30–35,5–10,12–15,Medium,"Dry roasted chicken chunks. Without the naan bread, this is a pure protein meal ideal for muscle retention.",Dinner
+D-13,Fish Fry (Pan Seared),250–300,25–28,2–5,12–15,Easy,Pan-searing with minimal oil preserves the Omega-3s without the caloric load of deep frying.,Dinner
+D-14,Besan Chilla (2) + Curd,250–280,12–14,30–35,8–10,Easy,A lighter alternative to rotis. Besan (chickpea flour) is less inflammatory than wheat gluten for some individuals.,Dinner
+D-15,Moong Dal Chilla + Chutney,240–270,14–16,30–35,6–8,Medium,The easiest to digest legume pancake. High Protein Efficiency Ratio (PER).,Dinner
+D-16,Dalia (Broken Wheat) Upma,200–250,6–8,40–45,5–7,Easy,High fiber aids morning bowel movements. The porridge-like consistency is comforting and filling.,Dinner
+D-17,Oats Khichdi,220–260,8–10,35–40,6–8,Easy,A savory application of oats. Combining with moong dal creates a complete protein source with soluble fiber.,Dinner
+D-18,Bajra Roti (1) + Methi Sabzi,250–300,6–8,35–40,8–10,Medium,Pearl millet (Bajra) is warming and gluten-free. Best consumed in winter for its thermal effect.,Dinner
+D-19,Jowar Roti (1) + Bhindi,240–280,6–8,40–45,6–8,Medium,Sorghum (Jowar) is lighter and easier to digest than wheat. High fiber content.,Dinner
+D-20,Ragi Porridge (Savory),180–220,6–8,35–40,4–6,Easy,"A semi-liquid meal that digests rapidly, improving sleep quality. Rich in calcium.",Dinner
+D-21,Curd Rice (Small Portion),200–250,6–8,30–35,8–10,Easy,"Dairy contains tryptophan, a precursor to serotonin/melatonin, promoting sleep. Portion control is vital.",Dinner
+D-22,Idiyappam (2) + Veg Stew,250–300,4–6,45–50,8–10,Hard,Steamed rice noodles are extremely light. The stew adds volume through water and coconut milk.,Dinner
+D-23,Khichdi (Moong Dal & Rice),250–300,10–12,40–45,8–10,Easy,"The ultimate Ayurvedic ""detox"" meal. It gives the digestive fire (Agni) a rest.",Dinner
+D-24,Pongal (Ven),300–350,10–12,45–50,12–15,Medium,"Similar to Khichdi but typically seasoned heavily with pepper, ginger, and ghee. Nutritious but calorie-dense.",Dinner
+D-25,Rava Dosa (1) + Sambar,200–250,4–6,35–40,6–8,Medium,Instant dosa without fermentation. The semolina crispiness provides psychological satisfaction.,Dinner
+D-26,Vegetable Dalia Pulao,220–260,6–8,40–45,6–8,Medium,"The grainy texture requires more chewing, which increases satiety signals to the brain.",Dinner
+D-27,Buckwheat (Kuttu) Khichdi,250–300,8–10,45–50,6–8,Medium,A pseudo-cereal often used during fasting (Navratri). High in magnesium and gluten-free.,Dinner
+D-28,Millet Dosa + Chutney,220–260,6–8,35–40,6–8,Hard,Made from Foxtail or Little millet. Has a lower glycemic impact than rice dosa.,Dinner
+D-29,Cauliflower Rice + Dal,200–250,10–12,20–25,6–8,Medium,A low-carb rice substitute. Significantly reduces caloric intake while maintaining the volume of a traditional meal.,Dinner
+D-30,Quinoa Salad (Indian Style),250–300,8–10,35–40,8–10,Easy,"High protein grain tossed with cucumber, tomato, and lemon dressing. Light and refreshing.",Dinner
+,,,,,,,,
+S-01,Roasted Chana (1/2 cup),150–180,8–10,25–30,2–4,Easy,The ultimate portable protein. Contains resistant starch. Requires zero preparation.,Snacks
+S-02,Roasted Makhana (Fox Nuts),100–120,3–4,20–25,3–5,Easy,Extremely low calorie for high volume. A perfect crunchy alternative to popcorn. Rich in magnesium.,Snacks
+S-03,Boiled Egg Chaat (2 eggs),140–160,12–14,2–4,10–12,Easy,"High protein. The addition of onions, tomatoes, and chaat masala adds volume and zest without calories.",Snacks
+S-04,Sprouted Moong Chaat,100–120,6–8,15–20,1–2,Medium,"""Living food""—high enzymatic activity from sprouting. Extremely high fiber content.",Snacks
+S-05,Peanut Chaat,180–220,8–10,8–12,14–16,Easy,High in healthy monounsaturated fats. Very satiating but calorie-dense; portion control is key.,Snacks
+S-06,Masala Corn (Boiled),120–150,3–5,25–30,2–3,Easy,Sweet corn is a whole grain. High fiber. Satisfies sweet/salty cravings effectively.,Snacks
+S-07,Chana Sundal,150–180,7–9,25–30,4–6,Medium,A South Indian beach snack. Tempering with mustard seeds and coconut adds healthy fats and flavor.,Snacks
+S-08,Dhokla (Steamed),140–160,4–6,20–25,4–6,Medium,"Steamed, not fried. Fermented chickpea batter is good for gut health. Low calorie density.",Snacks
+S-09,Hummus + Cucumber,150–200,6–8,15–20,8–10,Medium,Chickpea-based dip. Healthy fats from tahini/olive oil. Hydrating veggies reduce calorie intake.,Snacks
+S-10,Paneer Tikka (Grilled),180–220,12–15,4–6,12–15,Medium,Pure protein/fat snack. Keeps insulin low. Perfect for evening hunger pangs.,Snacks
+S-11,Buttermilk (Chaas),40–60,2–3,4–6,1–2,Easy,"Probiotic, hydrating, cooling. Spices like cumin aid digestion. Ideal post-lunch.",Snacks
+S-12,Coconut Water,40–50,0–1,10–12,0,Easy,Nature's sports drink. High potassium. Zero fat. Good for mid-morning hydration.,Snacks
+S-13,Fruit Chaat,80–120,1–2,20–30,0–1,Easy,"Vitamin dense. Chaat masala encourages fruit consumption. Choose low GI fruits (papaya, apple).",Snacks
+S-14,Cucumber Raita,60–80,3–4,5–8,2–4,Easy,"High volume, low calorie. Calcium from yogurt. Very cooling and filling.",Snacks
+S-15,Sattu Drink (Savory),100–120,6–8,15–20,2–3,Easy,"""Poor man's protein shake."" Roasted gram flour mixed with water. Instant energy and cooling.",Snacks
+S-16,Roasted Papad,30–50,2–3,5–8,0–1,Easy,Crunchy satisfaction for very low calories. Use urad dal papad for protein. Watch sodium.,Snacks
+S-17,Til (Sesame) Laddu,80–100,2–3,8–10,5–7,Easy,Calcium and healthy fats. Good for winter energy. Portion control is essential.,Snacks
+S-18,Protein Laddu (Home),120–150,8–10,10–15,6–8,Medium,"Made with whey, seeds, and dates. Functional dessert for muscle repair.",Snacks
+S-19,Vegetable Soup (Clear),50–70,1–2,10–12,0–1,Medium,High volume liquid. Delays hunger for dinner. Fiber from veggies aids digestion.,Snacks
+S-20,Almonds & Walnuts,160–180,5–6,4–6,14–16,Easy,Healthy Omega-3 fats. Satiating. Best consumed soaked to remove anti-nutrients.,Snacks

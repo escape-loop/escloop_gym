@@ -1,0 +1,199 @@
+# ========================================
+# Docker Compose - Gym Management System
+# Combined: "Run Everywhere" App + "Original" Automation Settings
+
+services:
+  # ========================================
+  # 1. DATABASE SERVICES
+  # ========================================
+
+  # MongoDB (For the Gym App) - "Run Everywhere" Config
+  mongodb:
+    image: mongo:7
+    container_name: gym_mongodb
+    restart: unless-stopped
+    environment:
+      MONGO_INITDB_DATABASE: gym_software
+    # Map port so you can check DB locally (27018 -> 27017)
+    ports:
+      - "27018:27017"
+    volumes:
+      - mongodb_data:/data/db
+    networks:
+      - escloop_network
+    healthcheck:
+      test: echo 'db.runCommand("ping").ok' | mongosh localhost:27017/test --quiet
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 20s
+
+  # Postgres (For Evolution API only) - OLD CONFIG MATCH
+  postgres_02:
+    image: postgres:15
+    container_name: whatsapp_postgres_02
+    restart: always
+    environment:
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=password
+      - POSTGRES_DB=evolution
+    volumes:
+      - postgres_data_02:/var/lib/postgresql/data
+    healthcheck:
+      test: [ "CMD-SHELL", "pg_isready -U postgres" ]
+      interval: 5s
+      timeout: 5s
+      retries: 5
+    networks:
+      - escloop_network
+
+  # Redis (For Evolution API) - OLD CONFIG MATCH
+  redis_02:
+    image: redis:alpine
+    container_name: whatsapp_redis_02
+    restart: always
+    command: [ "redis-server", "--appendonly", "yes" ]
+    volumes:
+      - redis_data_02:/data
+    networks:
+      - escloop_network
+
+  # ========================================
+  # 2. AUTOMATION SERVICES (Your Custom Setup)
+  # ========================================
+
+  # Evolution API - OLD CONFIG MATCH
+  evolution_api_02:
+    image: dev2917/escloop-evolution-api:latest
+    container_name: evolution_api_02
+    restart: always
+    ports:
+      - "8083:8080"
+    depends_on:
+      postgres_02:
+        condition: service_healthy
+      redis_02:
+        condition: service_started
+    environment:
+      # Database connection to postgres_02
+      - DATABASE_CONNECTION_URI=postgresql://postgres:password@postgres_02:5432/evolution?schema=public
+      # Redis connection to redis_02
+      - CACHE_REDIS_URI=redis://redis_02:6379/0
+      # Internal URL
+      - SERVER_URL=http://evolution_api_02:8080
+      - AUTHENTICATION_API_KEY=mySecretGlobalApiKey123
+    volumes:
+      - evolution_instances_02:/evolution/instances
+      - evolution_store_02:/evolution/store
+    networks:
+      - escloop_network
+
+  # n8n - OLD CONFIG MATCH (No Postgres, SQLite default)
+  n8n-second:
+    image: dev2917/escloop-gym-automation-n8n:latest
+    container_name: n8n-second
+    restart: unless-stopped
+    ports:
+      - "5679:5678"
+    environment:
+      - N8N_HOST=0.0.0.0
+      - N8N_PORT=5678
+      - N8N_PROTOCOL=http
+      # We use 'localhost' here so the browser can open the webhook URL on any machine
+      - WEBHOOK_URL=http://localhost:5679/
+      - N8N_ENCRYPTION_KEY=replace_this_with_random_string
+      - GENERIC_TIMEZONE=Asia/Kolkata
+      # Points to the container name 'evolution_api_02'
+      - EVOLUTION_URL=http://evolution_api_02:8080
+      - EVOLUTION_API_KEY=mySecretGlobalApiKey123
+    volumes:
+      - n8n_data_second:/home/node/.n8n
+    networks:
+      - escloop_network
+
+  # ========================================
+  # 3. APPLICATION SERVICES (Run Everywhere Fixes)
+  # ========================================
+
+  server:
+    # CHANGED: Commented out remote image to force local build
+    # image: dev2917/escloop-gym-1-server:latest
+    build:
+      context: ./server
+      dockerfile: Dockerfile
+    container_name: escloop-server
+    restart: unless-stopped
+    environment:
+      - NODE_ENV=production
+      - PORT=3000
+      # Connects to 'mongodb' service defined above
+      - MONGODB_URI=mongodb://mongodb:27017/gym_software
+      - JWT_PASS=rose1717
+      - SECURE=production
+      - SMTP_USER=94e7b7001@smtp-brevo.com
+      - SMTP_PASS=BqEbKOWUSmjYDZnw
+      - SENDER_EMAIL=thiyaroshni1717@gmail.com
+      - FRONTEND_URL=http://localhost
+      - OPENROUTER_API_KEY=${OPENROUTER_API_KEY:-your_api_key_here}
+      # Points to the 'n8n-second' container defined above
+      - N8N_WEBHOOK_HOST=http://n8n-second:5678
+    volumes:
+      # Persist uploads (profile pics, etc)
+      - escloop_uploads:/app/uploads
+      # Persist invoices (PDFs)
+      - escloop_public:/app/public
+    networks:
+      - escloop_network
+    depends_on:
+      mongodb:
+        condition: service_healthy
+
+  client:
+    # CHANGED: Commented out remote image to force local build
+    # image: dev2917/escloop-gym-1-client:latest
+    build:
+      context: ./client
+      dockerfile: Dockerfile
+    container_name: escloop-client
+    restart: unless-stopped
+    ports:
+      - "80:80"
+    networks:
+      - escloop_network
+    depends_on:
+      - server
+      - n8n-second
+      - evolution_api_02
+
+# ... existing services ...
+
+  tunnel:
+    image: cloudflare/cloudflared:latest
+    container_name: gym_temp_tunnel
+    restart: unless-stopped
+    # Use the SERVICE NAME 'client' here for reliability
+    command: tunnel --url http://client:80
+    networks:
+      - escloop_network
+    depends_on:
+      - client  # ✅ CORRECT: Matches the service name defined on line 120
+
+# ========================================
+# NETWORKS & VOLUMES
+# ========================================
+networks:
+  escloop_network:
+    driver: bridge
+
+volumes:
+  # App Data
+  mongodb_data:
+  escloop_uploads:
+  escloop_public:
+
+  # Automation Data (Old Names)
+  postgres_data_02:
+  redis_data_02:
+  evolution_instances_02:
+  evolution_store_02:
+  n8n_data_second:

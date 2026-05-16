@@ -1,0 +1,18 @@
+# ========================================
+# Docker .dockerignore - Client
+# ========================================
+node_modules
+npm-debug.log
+.env
+.env.*
+*.log
+.git
+.gitignore
+Dockerfile
+.dockerignore
+README.md
+*.md
+
+# Build output (will be generated in Docker)
+dist/
+build/

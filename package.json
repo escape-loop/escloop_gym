@@ -1,0 +1,57 @@
+{
+  "name": "escloop-gym-manager",
+  "version": "1.0.0",
+  "description": "Desktop Application for Gym Management",
+  "main": "main.js",
+  "author": "Escloop",
+  "scripts": {
+    "start": "electron .",
+    "build:client": "cd client && npm run build",
+    "pack": "electron-builder --dir",
+    "dist": "npm run build:client && electron-builder"
+  },
+  "dependencies": {
+    "dotenv": "^16.4.5",
+    "electron-updater": "^6.8.3"
+  },
+  "devDependencies": {
+    "electron": "^30.0.0",
+    "electron-builder": "^24.13.3",
+    "wait-on": "^7.2.0"
+  },
+  "build": {
+    "appId": "com.escloop.gymmanager",
+    "productName": "Escloop Gym Manager",
+    "publish": [
+      {
+        "provider": "github",
+        "owner": "escape-loop",
+        "repo": "escloop_gym",
+        "private": false
+      }
+    ],
+    "directories": {
+      "output": "dist"
+    },
+    "files": [
+      "main.js",
+      "server/**/*",
+      "client/dist/**/*",
+      "!server/node_modules/.cache",
+      "!client/node_modules"
+    ],
+    "extraMetadata": {
+      "main": "main.js"
+    },
+    "win": {
+      "target": "nsis",
+      "icon": "client/public/favicon.ico"
+    },
+    "nsis": {
+      "oneClick": false,
+      "allowToChangeInstallationDirectory": true,
+      "createDesktopShortcut": true,
+      "createStartMenuShortcut": true
+    }
+  }
+}

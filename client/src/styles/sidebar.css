@@ -1,0 +1,335 @@
+/* Sidebar Styles */
+:root {
+  --sidebar-width: 260px;
+  --sidebar-bg: #ffffff;
+  --sidebar-border: #e5e7eb;
+  --text-main: #111827;
+  --text-muted: #6b7280;
+  --accent: #fb923c;
+  --accent-hover: #ea580c;
+  --overlay-bg: rgba(0, 0, 0, 0.5);
+}
+
+/* Sidebar Overlay */
+.sidebar-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: transparent;
+  /* Changed from semi-transparent to transparent */
+  z-index: 999;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.3s ease, visibility 0.3s ease;
+  cursor: pointer;
+  pointer-events: none;
+  /* Prevent interference with layout */
+}
+
+.sidebar-overlay.active,
+.sidebar-overlay {
+  opacity: 1;
+  visibility: visible;
+  pointer-events: auto;
+  /* Enable clicks only when active */
+}
+
+/* Only allow overlay click to close on mobile */
+@media (max-width: 1024px) {
+  .sidebar-overlay {
+    cursor: pointer;
+    background: rgba(0, 0, 0, 0.3);
+    /* Only add background on mobile for better UX */
+  }
+}
+
+@media (min-width: 1025px) {
+  .sidebar-overlay {
+    pointer-events: none;
+    /* Prevent clicks on desktop */
+    background: transparent;
+    /* No background on desktop */
+  }
+}
+
+/* Sidebar Base */
+.sidebar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: var(--sidebar-width);
+  height: 100vh;
+  background: var(--sidebar-bg);
+  border-right: 1px solid var(--sidebar-border);
+  box-shadow: 2px 0 10px rgba(0, 0, 0, 0.1);
+  z-index: 1000;
+  transform: translateX(-100%);
+  transition: transform 0.3s ease;
+  display: flex;
+  flex-direction: column;
+  will-change: transform;
+  /* Optimize animation performance */
+  /* Ensure no gap with main content */
+  border-right: 1px solid var(--sidebar-border);
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.sidebar.open {
+  transform: translateX(0);
+  /* Ensure sidebar is flush against main content */
+  box-shadow: 2px 0 10px rgba(0, 0, 0, 0.1);
+  left: 0;
+  /* Ensure sidebar is flush against left edge */
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Ensure sidebar doesn't affect main content visibility */
+.sidebar {
+  backdrop-filter: none;
+  /* Remove any backdrop effects */
+}
+
+/* Sidebar Header */
+.sidebar-header {
+  padding: 16px 16px 12px;
+  border-bottom: 1px solid var(--sidebar-border);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  position: sticky;
+  top: 0;
+  background: #ffffff;
+  z-index: 10;
+}
+
+.app-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 10px;
+  border-radius: 999px;
+  background: #f3f4f6;
+  color: var(--text-muted);
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.close-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #ffffff;
+  border: 1px solid #e5e7eb;
+  cursor: pointer;
+  padding: 8px;
+  border-radius: 8px;
+  color: var(--text-muted);
+  transition: all 0.2s ease;
+  width: 36px;
+  height: 36px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.close-btn:hover {
+  background: #f9fafb;
+  border-color: #d1d5db;
+  color: var(--text-main);
+  transform: scale(1.05);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.close-btn svg {
+  width: 20px;
+  height: 20px;
+  stroke-width: 2px;
+}
+
+/* Responsive adjustments */
+@media (max-width: 1024px) {
+  .close-btn {
+    display: flex;
+  }
+}
+
+/* Navigation */
+.sidebar-nav {
+  flex: 1;
+  padding: 16px 0;
+  overflow-y: auto;
+}
+
+.nav-section-label {
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--text-muted);
+  padding: 8px 20px;
+  font-weight: 600;
+}
+
+.nav-item {
+  width: 100%;
+  border: none;
+  background: transparent;
+  color: var(--text-muted);
+  font-size: 14px;
+  padding: 10px 20px;
+  border-radius: 8px;
+  text-align: left;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.nav-item:hover {
+  background: #f9fafb;
+  color: var(--text-main);
+}
+
+.nav-item.active {
+  background: #fff7ed;
+  color: var(--accent);
+  border-left: 3px solid var(--accent);
+  padding-left: 17px;
+}
+
+.nav-label {
+  font-weight: 500;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+}
+
+.nav-item.locked {
+  opacity: 0.6;
+}
+
+.nav-item.locked:hover {
+  background: transparent;
+  cursor: pointer;
+  opacity: 0.8;
+}
+
+/* User Info */
+.sidebar-footer {
+  padding: 16px;
+  border-top: 1px solid var(--sidebar-border);
+}
+
+.user-card {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 8px;
+  border-radius: 12px;
+  background: #ffffff;
+  border: 1px solid var(--sidebar-border);
+}
+
+.avatar-mini {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: #e5e7eb;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--text-main);
+}
+
+.user-info {
+  flex: 1;
+}
+
+.user-name {
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--text-main);
+  margin-bottom: 2px;
+}
+
+.user-email {
+  font-size: 12px;
+  color: var(--text-muted);
+}
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+  .sidebar {
+    transform: translateX(-100%);
+  }
+
+  .sidebar.open {
+    transform: translateX(0);
+  }
+
+  .close-btn {
+    display: block;
+  }
+}
+
+@media (max-width: 768px) {
+  .sidebar {
+    width: 280px;
+  }
+}
+
+@media (max-width: 480px) {
+  .sidebar {
+    width: 100vw;
+  }
+
+  .sidebar-header .app-badge {
+    font-size: 11px;
+    padding: 4px 8px;
+  }
+
+  .user-card {
+    padding: 6px;
+  }
+
+  .avatar-mini {
+    width: 32px;
+    height: 32px;
+    font-size: 12px;
+  }
+}
+
+/* Scrollbar Styling */
+.sidebar-nav::-webkit-scrollbar {
+  width: 6px;
+}
+
+.sidebar-nav::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.sidebar-nav::-webkit-scrollbar-thumb {
+  background: #e5e7eb;
+  border-radius: 3px;
+}
+
+.sidebar-nav::-webkit-scrollbar-thumb:hover {
+  background: #d1d5db;
+}
+
+/* Animation for smooth opening/closing */
+@media (prefers-reduced-motion: no-preference) {
+  .sidebar {
+    transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+  }
+
+  .sidebar-overlay {
+    transition: opacity 0.3s ease, visibility 0.3s ease;
+  }
+}
