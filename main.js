@@ -38,10 +38,11 @@ function startServer() {
   const env = { 
     ...process.env, 
     PORT: PORT.toString(),
-    NODE_ENV: 'production' 
+    NODE_ENV: 'production',
+    ELECTRON_RUN_AS_NODE: '1'
   };
 
-  serverProcess = spawn('node', [serverPath], { env });
+  serverProcess = spawn(process.execPath, [serverPath], { env });
 
   serverProcess.stdout.on('data', (data) => {
     console.log(`[Server]: ${data}`);
