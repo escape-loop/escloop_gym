@@ -1,6 +1,6 @@
 {
-  "name": "escloop-gym-manager",
-  "version": "1.0.0",
+  "name": "escapeloop-gym-software",
+  "version": "1.0.1",
   "description": "Desktop Application for Gym Management",
   "main": "main.js",
   "author": "Escloop",
@@ -12,16 +12,16 @@
   },
   "dependencies": {
     "dotenv": "^16.4.5",
-    "electron-updater": "^6.8.3"
+    "electron-updater": "^6.8.3",
+    "wait-on": "^7.2.0"
   },
   "devDependencies": {
     "electron": "^30.0.0",
-    "electron-builder": "^24.13.3",
-    "wait-on": "^7.2.0"
+    "electron-builder": "^24.13.3"
   },
   "build": {
     "appId": "com.escloop.gymmanager",
-    "productName": "Escloop Gym Manager",
+    "productName": "Escapeloop Gym Software",
     "publish": [
       {
         "provider": "github",
