@@ -43,6 +43,18 @@ module.exports = function tenantPlugin(schema) {
         if (currentGymId && !this.gymId) {
             this.gymId = currentGymId;
         }
+
+        // Programmatically convert empty strings to undefined for all optional fields to prevent 
+        // duplicate key errors on unique/sparse indexes (e.g. email, panNumber, aadhaarNumber, referralCode)
+        const paths = schema.paths;
+        for (const pathName in paths) {
+            const pathType = paths[pathName];
+            if (pathType.instance === 'String' && !pathType.isRequired) {
+                if (this.get(pathName) === '') {
+                    this.set(pathName, undefined);
+                }
+            }
+        }
     });
 
     // --- WRITE: Bulk Insert ---

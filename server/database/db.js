@@ -40,6 +40,22 @@ const connectDB = async () => {
 
         await mongoose.connect(uri);
         console.log('MongoDB connected successfully');
+
+        // Programmatically drop legacy email_1 unique index to prevent duplicate key errors on empty emails
+        try {
+            const db = mongoose.connection.db;
+            const collections = await db.listCollections({ name: 'members' }).toArray();
+            if (collections.length > 0) {
+                const indexes = await db.collection('members').indexes();
+                const emailIdx = indexes.find(idx => idx.name === 'email_1' || (idx.key && idx.key.email === 1));
+                if (emailIdx) {
+                    await db.collection('members').dropIndex(emailIdx.name);
+                    console.log(`[DB] Successfully dropped legacy unique index: ${emailIdx.name}`);
+                }
+            }
+        } catch (indexErr) {
+            console.warn('[DB] Non-critical: Could not drop legacy email index:', indexErr.message);
+        }
     } catch (err) {
         console.error('MongoDB connection error:', err);
         process.exit(1);
