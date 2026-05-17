@@ -1,6 +1,7 @@
 const { app, BrowserWindow, ipcMain, dialog } = require('electron');
 const path = require('path');
 const { spawn } = require('child_process');
+const fs = require('fs');
 const waitOn = require('wait-on');
 const { autoUpdater } = require('electron-updater');
 
@@ -8,38 +9,51 @@ let mainWindow;
 let serverProcess;
 let updateNotified = false; // Guard: only show update dialog once per session
 
-const PORT = 54321; // Fixed high port for the local backend
+const PORT = 54321;
 
+// ─────────────────────────────────────────────────────────────────────────────
+// LOGGING — writes BOTH main-process and server-process events to one log file
+// ─────────────────────────────────────────────────────────────────────────────
+function getLogPath() {
+  return path.join(app.getPath('userData'), 'gym_server_debug.log');
+}
+
+function logToFile(msg) {
+  try {
+    const line = `[${new Date().toISOString()}] ${msg}\n`;
+    fs.appendFileSync(getLogPath(), line);
+  } catch (e) { /* ignore write errors */ }
+}
+
+// ─────────────────────────────────────────────────────────────────────────────
+// WINDOW
+// ─────────────────────────────────────────────────────────────────────────────
 function createWindow() {
   mainWindow = new BrowserWindow({
     width: 1200,
     height: 800,
-    show: true, // Show immediately with a dark background to indicate loading
-    backgroundColor: '#1E1E1E', // Match your dark theme
+    show: true,
+    backgroundColor: '#1E1E1E',
     webPreferences: {
       nodeIntegration: false,
       contextIsolation: true,
       preload: path.join(__dirname, 'preload.js')
     },
-    // In production, Vite moves public assets directly into the dist folder
-    icon: path.join(__dirname, process.env.NODE_ENV === 'production' ? 'client/dist/icon-1.ico' : 'client/public/icon-1.ico')
+    icon: path.join(__dirname, 'client/dist/icon-1.ico')
   });
 
-  // Completely removes the menu bar
   mainWindow.setMenu(null);
 
-  mainWindow.on('closed', function () {
+  mainWindow.on('closed', () => {
     mainWindow = null;
   });
 
-  // Setup IPC handler for exporting logs
-  ipcMain.on('export-logs', async (event) => {
-    const fs = require('fs');
+  // IPC: export logs to Desktop on demand
+  ipcMain.on('export-logs', async () => {
     const os = require('os');
-    const logPath = path.join(app.getPath('userData'), 'gym_server_debug.log');
+    const logPath = getLogPath();
     const desktopPath = path.join(os.homedir(), 'Desktop', 'gym_server_debug.log');
 
-    // Ask for confirmation
     const { response } = await dialog.showMessageBox(mainWindow, {
       type: 'question',
       buttons: ['Yes, Export', 'Cancel'],
@@ -48,7 +62,7 @@ function createWindow() {
       detail: 'This will copy the hidden server logs to your Desktop so you can share them with support.'
     });
 
-    if (response === 0) { // 'Yes, Export' clicked
+    if (response === 0) {
       if (fs.existsSync(logPath)) {
         fs.copyFileSync(logPath, desktopPath);
         dialog.showMessageBox(mainWindow, {
@@ -67,14 +81,18 @@ function createWindow() {
   });
 }
 
+// ─────────────────────────────────────────────────────────────────────────────
+// SERVER
+// ─────────────────────────────────────────────────────────────────────────────
 function startServer() {
+  // Initialize the log file (clears old log on each startup)
+  fs.writeFileSync(getLogPath(), `--- App Started: ${new Date().toISOString()} ---\n`);
+  logToFile(`[Main] App version: ${app.getVersion()}`);
+  logToFile('[Main] Starting backend server...');
+
   const serverPath = path.join(__dirname, 'server', 'server.js');
-  
-  console.log('Starting Node.js backend...');
-  
-  // Set env vars for the backend
-  const env = { 
-    ...process.env, 
+  const env = {
+    ...process.env,
     PORT: PORT.toString(),
     NODE_ENV: 'production',
     ELECTRON_RUN_AS_NODE: '1'
@@ -82,117 +100,137 @@ function startServer() {
 
   serverProcess = spawn(process.execPath, [serverPath], { env });
 
-  const fs = require('fs');
-  const logPath = path.join(app.getPath('userData'), 'gym_server_debug.log');
-  fs.writeFileSync(logPath, '--- Server Startup Log ---\n');
-
   serverProcess.stdout.on('data', (data) => {
-    const msg = `[Server]: ${data}`;
-    console.log(msg);
-    fs.appendFileSync(logPath, msg);
+    logToFile(`[Server] ${data.toString().trim()}`);
   });
 
   serverProcess.stderr.on('data', (data) => {
-    const msg = `[Server Error]: ${data}`;
-    console.error(msg);
-    fs.appendFileSync(logPath, msg);
+    logToFile(`[Server ERROR] ${data.toString().trim()}`);
+  });
+
+  serverProcess.on('exit', (code) => {
+    logToFile(`[Server] Process exited with code ${code}`);
   });
 }
 
-app.on('ready', () => {
-  createWindow();
-  startServer();
+// ─────────────────────────────────────────────────────────────────────────────
+// AUTO UPDATER — all events logged to file so export button reveals exactly
+// what is happening even if client/server are completely crashed
+// ─────────────────────────────────────────────────────────────────────────────
+function setupAutoUpdater() {
+  autoUpdater.autoDownload = true;          // Always download in background
+  autoUpdater.autoInstallOnAppQuit = false; // We control restarts via dialog
 
-  // Auto Updater - configure before registering listeners
-  autoUpdater.autoDownload = true;           // Always auto-download in background
-  autoUpdater.autoInstallOnAppQuit = false;  // We control the install via our own dialog
-
-  // Register ALL listeners BEFORE triggering the check
   autoUpdater.on('checking-for-update', () => {
-    console.log('[AutoUpdater] Checking for update...');
+    logToFile('[AutoUpdater] Checking for update...');
   });
 
-  autoUpdater.on('update-not-available', () => {
-    console.log('[AutoUpdater] App is up to date.');
+  autoUpdater.on('update-not-available', (info) => {
+    logToFile(`[AutoUpdater] App is up to date. Current: ${app.getVersion()}, Latest: ${info.version}`);
   });
 
-  autoUpdater.on('error', (err) => {
-    console.error('[AutoUpdater] Error:', err.message);
-  });
-
-  autoUpdater.on('update-available', () => {
-    if (updateNotified) return; // Already told the user this session
+  autoUpdater.on('update-available', (info) => {
+    logToFile(`[AutoUpdater] Update available: ${info.version}`);
+    if (updateNotified) {
+      logToFile('[AutoUpdater] Dialog already shown this session. Skipping.');
+      return;
+    }
     updateNotified = true;
-    dialog.showMessageBox(mainWindow, {
-      type: 'info',
-      title: 'Update Available',
-      message: 'A new version is available! It is currently downloading in the background. Watch your taskbar icon for progress...',
-      buttons: ['Okay']
-    });
+    if (mainWindow) {
+      dialog.showMessageBox(mainWindow, {
+        type: 'info',
+        title: 'Update Available',
+        message: `Version ${info.version} is available!\n\nIt is downloading in the background. Watch your taskbar icon for progress.`,
+        buttons: ['Okay']
+      });
+    }
   });
 
-  // Show a progress bar on the application's taskbar icon
   autoUpdater.on('download-progress', (progressObj) => {
+    const percent = Math.round(progressObj.percent);
+    logToFile(`[AutoUpdater] Download progress: ${percent}% (${Math.round(progressObj.transferred / 1024)}KB / ${Math.round(progressObj.total / 1024)}KB)`);
     if (mainWindow) {
       mainWindow.setProgressBar(progressObj.percent / 100);
     }
   });
-  
-  autoUpdater.on('update-downloaded', async () => {
+
+  autoUpdater.on('update-downloaded', async (info) => {
+    logToFile(`[AutoUpdater] Download complete: ${info.version}. Waiting for user to confirm restart.`);
     if (mainWindow) {
-      mainWindow.setProgressBar(-1); // Remove the progress bar
+      mainWindow.setProgressBar(-1);
     }
     const { response } = await dialog.showMessageBox(mainWindow, {
       type: 'info',
-      title: 'Update Ready',
-      message: 'The new version has been downloaded. Would you like to restart the application now to apply the updates?',
+      title: 'Update Ready to Install',
+      message: `Version ${info.version} has been downloaded.\n\nWould you like to restart the application now to apply the update?`,
       buttons: ['Restart Now', 'Later']
     });
-    
     if (response === 0) {
+      logToFile('[AutoUpdater] User chose to restart. Installing...');
       autoUpdater.quitAndInstall(false, true);
+    } else {
+      logToFile('[AutoUpdater] User chose Later. Will install on next restart.');
     }
   });
 
-  // 1. Check immediately on startup
-  autoUpdater.checkForUpdates();
+  autoUpdater.on('error', (err) => {
+    logToFile(`[AutoUpdater ERROR] ${err.message}`);
+    logToFile(`[AutoUpdater ERROR STACK] ${err.stack}`);
+  });
 
-  // 2. Check every 30 minutes if the user never closes the app
-  const THIRTY_MINUTES = 30 * 60 * 1000;
-  setInterval(() => {
-    autoUpdater.checkForUpdates();
-  }, THIRTY_MINUTES);
+  // Run check immediately on startup, then every 30 minutes
+  function runCheck() {
+    logToFile('[AutoUpdater] Initiating check...');
+    autoUpdater.checkForUpdates().catch((err) => {
+      logToFile(`[AutoUpdater] checkForUpdates() rejected: ${err.message}`);
+    });
+  }
 
-  // Wait for the local server to be ready before loading the URL
+  runCheck(); // Check on startup
+  setInterval(runCheck, 30 * 60 * 1000); // Check every 30 minutes
+}
+
+// ─────────────────────────────────────────────────────────────────────────────
+// APP LIFECYCLE
+// ─────────────────────────────────────────────────────────────────────────────
+app.on('ready', () => {
+  createWindow();
+  startServer();   // Initializes log file first, THEN starts server
+  setupAutoUpdater(); // Now runs with log file guaranteed to exist
+
   waitOn({
     resources: [`tcp:127.0.0.1:${PORT}`],
-    timeout: 120000, // 120 seconds
+    timeout: 120000,
   }).then(() => {
-    console.log('Backend is ready. Loading frontend...');
-    mainWindow.loadURL(`http://127.0.0.1:${PORT}`);
-    mainWindow.maximize();
-    mainWindow.show();
+    logToFile('[Main] Backend ready. Loading frontend...');
+    if (mainWindow) {
+      mainWindow.loadURL(`http://127.0.0.1:${PORT}`);
+      mainWindow.maximize();
+      mainWindow.show();
+    }
   }).catch((err) => {
-    console.error('Failed to wait for backend:', err);
-    // Even if it fails, try to load
-    mainWindow.loadURL(`http://127.0.0.1:${PORT}`);
-    mainWindow.show();
+    logToFile(`[Main ERROR] Backend did not start in time: ${err.message}`);
+    if (mainWindow) {
+      mainWindow.loadURL(`http://127.0.0.1:${PORT}`);
+      mainWindow.show();
+    }
   });
 });
 
-app.on('window-all-closed', function () {
+app.on('window-all-closed', () => {
   if (process.platform !== 'darwin') {
     app.quit();
   }
 });
 
 app.on('quit', () => {
+  logToFile('[Main] App quitting. Killing backend server.');
   if (serverProcess) {
     serverProcess.kill();
   }
 });
 
-app.on('activate', function () {
+app.on('activate', () => {
   if (mainWindow === null) {
     createWindow();
   }
