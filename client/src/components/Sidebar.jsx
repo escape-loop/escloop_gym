@@ -126,7 +126,7 @@ export default function Sidebar({ isOpen, onClose }) {
         <div className="sidebar-header">
           <div className="app-badge" style={{ display: 'flex', alignItems: 'center', gap: '8px', marginLeft: '40px' }}>
             <img src={logo} alt="Logo" style={{ width: "30px", height: "30px" }} />
-            ESCLOOP GYM SOFTWARE
+            ESCLOOP GYM SUITE
           </div>
         </div>
 

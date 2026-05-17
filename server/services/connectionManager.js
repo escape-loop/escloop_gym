@@ -43,19 +43,14 @@ class ConnectionManager {
      */
     async warmConnections() {
         try {
-            console.log('[ConnectionManager] Warming up connections...');
             const gyms = await GymSettings.find({ mongoUri: { $exists: true, $ne: '' } }).lean();
             
             const uniqueUris = new Set();
             gyms.forEach(gym => uniqueUris.add(gym.mongoUri));
 
-            console.log(`[ConnectionManager] Found ${uniqueUris.size} unique database URIs`);
-
             uniqueUris.forEach(uri => {
                 this.getConnection(uri);
             });
-
-            console.log('[ConnectionManager] Warm-up complete.');
         } catch (error) {
             console.error('[ConnectionManager] Error warming up connections:', error);
         }

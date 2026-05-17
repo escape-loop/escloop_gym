@@ -102,8 +102,18 @@ app.on('ready', () => {
   createWindow();
   startServer();
 
-  // Setup Auto Updater
-  autoUpdater.checkForUpdatesAndNotify();
+  // Auto Updater - register ALL listeners before checking
+  autoUpdater.on('checking-for-update', () => {
+    console.log('[AutoUpdater] Checking for update...');
+  });
+
+  autoUpdater.on('update-not-available', () => {
+    console.log('[AutoUpdater] App is up to date.');
+  });
+
+  autoUpdater.on('error', (err) => {
+    console.error('[AutoUpdater] Error:', err.message);
+  });
 
   autoUpdater.on('update-available', () => {
     dialog.showMessageBox(mainWindow, {
@@ -136,6 +146,9 @@ app.on('ready', () => {
       autoUpdater.quitAndInstall(false, true);
     }
   });
+
+  // Check AFTER all listeners are registered
+  autoUpdater.checkForUpdatesAndNotify();
 
   // Wait for the local server to be ready before loading the URL
   waitOn({
