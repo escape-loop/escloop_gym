@@ -4,7 +4,7 @@ const GymSettings = require('../models/GymSettings.js');
 const EVOLUTION_API_URL = process.env.EVOLUTION_API_URL || 'http://host.docker.internal:8083';
 const EVOLUTION_API_KEY = process.env.EVOLUTION_API_KEY || 'mySecretGlobalApiKey123';
 
-console.log('[WhatsApp] Evolution API URL:', EVOLUTION_API_URL);
+// Removed console.log to prevent leaking EVOLUTION_API_URL
 
 const getHeaders = () => ({
   'Content-Type': 'application/json',

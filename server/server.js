@@ -105,6 +105,27 @@ app.use('/api/license', licenseRouter);
 app.use('/api/branch', branchRouter);
 app.use('/gym/whatsapp', whatsappRouter);
 
+app.get('/api/system/export-logs', (req, res) => {
+    try {
+        const os = require('os');
+        const fs = require('fs');
+        const path = require('path');
+        const appData = process.env.APPDATA || process.env.HOME + '/.config';
+        const logPath = path.join(appData, 'escapeloop-gym-software', 'gym_server_debug.log');
+        const desktopPath = path.join(os.homedir(), 'Desktop', 'gym_server_debug.log');
+        
+        if (fs.existsSync(logPath)) {
+            fs.copyFileSync(logPath, desktopPath);
+            res.json({ success: true, message: 'Logs exported to Desktop successfully!' });
+        } else {
+            res.status(404).json({ success: false, message: 'Log file not found.' });
+        }
+    } catch (error) {
+        console.error('Error exporting logs:', error);
+        res.status(500).json({ success: false, message: 'Failed to export logs.' });
+    }
+});
+
 // ========================================
 // GYM SETTINGS ROUTES
 // ========================================
