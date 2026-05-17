@@ -18,12 +18,11 @@ class ConnectionManager {
             return this.connections.get(uri);
         }
 
-        console.log(`[ConnectionManager] Creating new connection for URI: ${uri.split('@').pop()}`);
-        
+        // Removed log to prevent URI leak
         const conn = mongoose.createConnection(uri);
 
         conn.on('connected', () => {
-            console.log(`[ConnectionManager] Connected to ${uri.split('@').pop()}`);
+            // Silently connected
         });
 
         conn.on('error', (err) => {
@@ -31,7 +30,7 @@ class ConnectionManager {
         });
 
         conn.on('disconnected', () => {
-            console.log(`[ConnectionManager] Disconnected from ${uri.split('@').pop()}`);
+            // Silently disconnected
         });
 
         this.connections.set(uri, conn);
