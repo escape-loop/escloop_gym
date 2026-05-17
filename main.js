@@ -6,6 +6,7 @@ const { autoUpdater } = require('electron-updater');
 
 let mainWindow;
 let serverProcess;
+let updateNotified = false; // Guard: only show update dialog once per session
 
 const PORT = 54321; // Fixed high port for the local backend
 
@@ -102,7 +103,11 @@ app.on('ready', () => {
   createWindow();
   startServer();
 
-  // Auto Updater - register ALL listeners before checking
+  // Auto Updater - configure before registering listeners
+  autoUpdater.autoDownload = true;           // Always auto-download in background
+  autoUpdater.autoInstallOnAppQuit = false;  // We control the install via our own dialog
+
+  // Register ALL listeners BEFORE triggering the check
   autoUpdater.on('checking-for-update', () => {
     console.log('[AutoUpdater] Checking for update...');
   });
@@ -116,10 +121,12 @@ app.on('ready', () => {
   });
 
   autoUpdater.on('update-available', () => {
+    if (updateNotified) return; // Already told the user this session
+    updateNotified = true;
     dialog.showMessageBox(mainWindow, {
       type: 'info',
       title: 'Update Available',
-      message: 'A new version is available! It is currently downloading in the background. Check your taskbar icon for progress...',
+      message: 'A new version is available! It is currently downloading in the background. Watch your taskbar icon for progress...',
       buttons: ['Okay']
     });
   });
@@ -147,8 +154,14 @@ app.on('ready', () => {
     }
   });
 
-  // Check AFTER all listeners are registered
-  autoUpdater.checkForUpdatesAndNotify();
+  // 1. Check immediately on startup
+  autoUpdater.checkForUpdates();
+
+  // 2. Check every 30 minutes if the user never closes the app
+  const THIRTY_MINUTES = 30 * 60 * 1000;
+  setInterval(() => {
+    autoUpdater.checkForUpdates();
+  }, THIRTY_MINUTES);
 
   // Wait for the local server to be ready before loading the URL
   waitOn({
