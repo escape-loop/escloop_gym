@@ -18,7 +18,7 @@ function createWindow() {
       nodeIntegration: false,
       contextIsolation: true
     },
-    icon: path.join(__dirname, 'client/public/favicon.ico')
+    icon: path.join(__dirname, 'client/public/icon-1.ico')
   });
 
   // Completely removes the menu bar
