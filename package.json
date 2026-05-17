@@ -1,6 +1,6 @@
 {
   "name": "escapeloop-gym-software",
-  "version": "1.0.4",
+  "version": "1.0.6",
   "description": "Desktop Application for Gym Management",
   "main": "main.js",
   "author": "Escloop",
@@ -11,8 +11,24 @@
     "dist": "npm run build:client && electron-builder"
   },
   "dependencies": {
+    "axios": "^1.13.2",
+    "bcryptjs": "^3.0.3",
+    "cookie-parser": "^1.4.7",
+    "cors": "^2.8.5",
+    "csv-parser": "^3.2.0",
     "dotenv": "^16.4.5",
     "electron-updater": "^6.8.3",
+    "express": "^5.2.1",
+    "helmet": "^8.1.0",
+    "ioredis": "^5.9.3",
+    "jsonwebtoken": "^9.0.3",
+    "jspdf": "^4.0.0",
+    "jspdf-autotable": "^5.0.7",
+    "mongoose": "^9.1.0",
+    "multer": "^2.0.2",
+    "node-cron": "^4.2.1",
+    "nodemailer": "^7.0.12",
+    "pdfkit": "^0.17.2",
     "wait-on": "^7.2.0"
   },
   "devDependencies": {
@@ -24,6 +40,11 @@
     "productName": "Escapeloop Gym Software",
     "win": {
       "icon": "client/public/icon-1.ico"
+    },
+    "nsis": {
+      "oneClick": true,
+      "perMachine": false,
+      "allowToChangeInstallationDirectory": false
     },
     "publish": [
       {
