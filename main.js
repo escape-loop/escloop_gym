@@ -106,12 +106,35 @@ app.on('ready', () => {
   autoUpdater.checkForUpdatesAndNotify();
 
   autoUpdater.on('update-available', () => {
-    console.log('[AutoUpdater] Update available.');
+    dialog.showMessageBox(mainWindow, {
+      type: 'info',
+      title: 'Update Available',
+      message: 'A new version is available! It is currently downloading in the background. Check your taskbar icon for progress...',
+      buttons: ['Okay']
+    });
+  });
+
+  // Show a progress bar on the application's taskbar icon
+  autoUpdater.on('download-progress', (progressObj) => {
+    if (mainWindow) {
+      mainWindow.setProgressBar(progressObj.percent / 100);
+    }
   });
   
-  autoUpdater.on('update-downloaded', () => {
-    console.log('[AutoUpdater] Update downloaded. Installing now...');
-    autoUpdater.quitAndInstall(false, true); // (isSilent, isForceRunAfter)
+  autoUpdater.on('update-downloaded', async () => {
+    if (mainWindow) {
+      mainWindow.setProgressBar(-1); // Remove the progress bar
+    }
+    const { response } = await dialog.showMessageBox(mainWindow, {
+      type: 'info',
+      title: 'Update Ready',
+      message: 'The new version has been downloaded. Would you like to restart the application now to apply the updates?',
+      buttons: ['Restart Now', 'Later']
+    });
+    
+    if (response === 0) {
+      autoUpdater.quitAndInstall(false, true);
+    }
   });
 
   // Wait for the local server to be ready before loading the URL
