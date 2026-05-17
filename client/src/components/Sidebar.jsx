@@ -126,7 +126,7 @@ export default function Sidebar({ isOpen, onClose }) {
         <div className="sidebar-header">
           <div className="app-badge" style={{ display: 'flex', alignItems: 'center', gap: '8px', marginLeft: '40px' }}>
             <img src={logo} alt="Logo" style={{ width: "30px", height: "30px" }} />
-            ESCLOOP GYM SUITE
+            ESCLOOP GYM SOFTWARE
           </div>
         </div>
 
@@ -136,7 +136,7 @@ export default function Sidebar({ isOpen, onClose }) {
           {menuItems.map((item) => {
             const isLocked = item.planFeature && !hasFeature(item.planFeature);
             const isBranchManager = userdata?.role === 'branch_manager';
-            
+
             // Hide Branch Revenue from Branch Managers
             if (item.id === 'branch-revenue' && isBranchManager) return null;
 
