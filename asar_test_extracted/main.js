@@ -13,21 +13,16 @@ function createWindow() {
   mainWindow = new BrowserWindow({
     width: 1200,
     height: 800,
-    show: true, // Show immediately with a dark background to indicate loading
-    backgroundColor: '#1E1E1E', // Match your dark theme
+    show: false, // Wait until server is ready to show
     webPreferences: {
       nodeIntegration: false,
       contextIsolation: true
     },
-    // In production, Vite moves public assets directly into the dist folder
-    icon: path.join(__dirname, process.env.NODE_ENV === 'production' ? 'client/dist/icon-1.ico' : 'client/public/icon-1.ico')
+    icon: path.join(__dirname, 'client/public/icon-1.ico')
   });
 
   // Completely removes the menu bar
   mainWindow.setMenu(null);
-
-  // Open the DevTools automatically to debug the white screen
-  mainWindow.webContents.openDevTools();
 
   mainWindow.on('closed', function () {
     mainWindow = null;
@@ -49,21 +44,12 @@ function startServer() {
 
   serverProcess = spawn(process.execPath, [serverPath], { env });
 
-  const fs = require('fs');
-  const os = require('os');
-  const logPath = path.join(os.homedir(), 'Desktop', 'gym_server_debug.log');
-  fs.writeFileSync(logPath, '--- Server Startup Log ---\n');
-
   serverProcess.stdout.on('data', (data) => {
-    const msg = `[Server]: ${data}`;
-    console.log(msg);
-    fs.appendFileSync(logPath, msg);
+    console.log(`[Server]: ${data}`);
   });
 
   serverProcess.stderr.on('data', (data) => {
-    const msg = `[Server Error]: ${data}`;
-    console.error(msg);
-    fs.appendFileSync(logPath, msg);
+    console.error(`[Server Error]: ${data}`);
   });
 }
 

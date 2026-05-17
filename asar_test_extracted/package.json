@@ -1,0 +1,12 @@
+{
+  "name": "escapeloop-gym-software",
+  "version": "1.0.3",
+  "description": "Desktop Application for Gym Management",
+  "main": "main.js",
+  "author": "Escloop",
+  "dependencies": {
+    "dotenv": "^16.4.5",
+    "electron-updater": "^6.8.3",
+    "wait-on": "^7.2.0"
+  }
+}

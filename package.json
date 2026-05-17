@@ -1,6 +1,6 @@
 {
   "name": "escapeloop-gym-software",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "description": "Desktop Application for Gym Management",
   "main": "main.js",
   "author": "Escloop",
@@ -22,6 +22,9 @@
   "build": {
     "appId": "com.escloop.gymmanager",
     "productName": "Escapeloop Gym Software",
+    "win": {
+      "icon": "client/public/icon-1.ico"
+    },
     "publish": [
       {
         "provider": "github",
